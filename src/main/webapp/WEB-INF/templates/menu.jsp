@@ -17,8 +17,8 @@
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="<c:url value="/product"/>">Products</a></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="<c:url value="/admin"/>">Admin</a></li>
 			</ul>
 			<form class="form-inline mt-2 mt-md-0">
 				<input class="form-control mr-sm-2" type="text" placeholder="Search"

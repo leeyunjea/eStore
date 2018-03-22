@@ -13,7 +13,7 @@ public class Product {
 	private String name;
 	private String category;
 	private int price;
-	private String menufacturer;
+	private String manufacturer;
 	private int unitInStock;
 	private String description;
 	
