@@ -112,4 +112,5 @@ public class ProductDao {
 				new Object[] { name, category, price, manufacturer, unitInStock, description, id}) == 1);
 		
 	}
+
 }
