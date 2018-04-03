@@ -20,9 +20,8 @@
 			<div class="col-md-6">
 				<h3>${product.name}</h3>
 				<p>${product.description}</p>
-				<p>Manufaturer:${product.manufacturer}</p>
-				<p>Price:${product.price}</p>
-				<p>Category:${product.category}</p>
+				<p>Manufaturer: ${product.manufacturer}</p>
+				<p>Category: ${product.category}</p>
 				<p style="font-size: 20px;">${product.price}원</p>
 			</div>
 		</div>
