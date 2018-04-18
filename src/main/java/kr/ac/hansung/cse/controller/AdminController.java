@@ -29,7 +29,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/productInventory")
-	public String getProducts(Model model) { // controller -> model
+	public String getProducts(Model model) { // controller -> model -> view
 		
 		List<Product> products = productService.getProducts();
 		model.addAttribute("products", products);
@@ -61,23 +61,22 @@ public class AdminController {
 			return "addProduct"; //에러가 나면 다시 입력할 수 있는 페이지로 돌아감
 		}
 		
-		if(!productService.addProduct(product))
-			System.out.println("Adding product cannot be done");
+		productService.addProduct(product);
 		
 		return "redirect:/admin/productInventory";
 	}
 	
-	@RequestMapping(value="/productInventory/deleteProduct{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/productInventory/deleteProduct/{id}", method=RequestMethod.GET)
 	public String deleteProduct(@PathVariable int id) {
 		
-		if(!productService.deleteProduct(id))
-			System.out.println("Deleting product cannot be done");
+		Product product = productService.getProductById(id);
+		productService.deleteProduct(product);
 		
 		return "redirect:/admin/productInventory";
 		
 	}
 	
-	@RequestMapping(value="/productInventory/updateProduct{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/productInventory/updateProduct/{id}", method=RequestMethod.GET)
 	public String updateProduct(@PathVariable int id, Model model) {
 		
 		Product product = productService.getProductById(id);
@@ -103,8 +102,7 @@ public class AdminController {
 			return "updateProduct"; 
 		}
 		
-		if(!productService.updateProduct(product))
-			System.out.println("Updating product cannot be done");
+		productService.updateProduct(product);
 		
 		return "redirect:/admin/productInventory";
 	}
