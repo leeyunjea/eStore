@@ -25,5 +25,10 @@
 				<p style="font-size: 20px;">${product.price}원</p>
 			</div>
 		</div>
+
+
+	</div>
+
 	</div>
 </div>
+
