@@ -10,7 +10,8 @@
 		<security:authentication-provider>
 			<security:jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="select username, password, enabled from users where username=?"
-				authorities-by-username-query="select username, authority from authorities where username=?" />
+				authorities-by-username-query="select username, authority from users where username=?" />
+			<security:password-encoder ref="passwordEncoder"></security:password-encoder>
 		</security:authentication-provider>
 	</security:authentication-manager>
 	
@@ -19,4 +20,8 @@
 		<security:intercept-url pattern="/admin/**" access='hasRole("ROLE_ADMIN")' /> <!-- /admin밑으로 오는 모든 url은 'ROLE_ADMIN'이라는 권한을 가져야 한다. -->
 		<security:form-login login-page="/login" authentication-failure-url="/login?error=1" />
 	</security:http>
+	<bean
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
+		id="passwordEncoder">
+	</bean>
 </beans>
