@@ -10,6 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    
+    <meta name="_csrf" content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta name="_csrf_header" content="${_csrf.headerName}"/>
 
     <title><tiles:insertAttribute name="title"/></title>
 
@@ -21,7 +25,11 @@
   	<link href="<c:url value="/resources/css/main.css"/>"
 	rel="stylesheet">
 	
+	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">  
+	
+	<!-- AngularJS--->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> </script>
 	
   </head>
   <body>

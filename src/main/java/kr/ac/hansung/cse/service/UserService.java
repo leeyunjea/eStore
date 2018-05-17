@@ -22,7 +22,7 @@ public class UserService {
       return userDao.getUserById(userId);
    }
    
-   public User getUSerByUserName(String username) {
+   public User getUserByUserName(String username) {
       return userDao.getUserByUsernmae(username);
    }
    
