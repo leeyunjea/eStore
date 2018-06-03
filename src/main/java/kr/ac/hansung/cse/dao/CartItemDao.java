@@ -2,6 +2,7 @@ package kr.ac.hansung.cse.dao;
 
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
@@ -31,7 +32,13 @@ public class CartItemDao {
 		session.delete(cartItem);
 		session.flush();
 	}
-	
+	//
+	public void updateCartItem(CartItem cartItem) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(cartItem);
+		session.flush();
+	}
+	//
 	public void removeAllCartItems(Cart cart) {
 		List<CartItem> cartItmes = cart.getCartItems(); //lazy로 줬으면 null값이 들어감. eagel로 줬기 때문에 다 가져옴
 		

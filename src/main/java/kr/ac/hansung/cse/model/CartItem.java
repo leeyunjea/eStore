@@ -18,7 +18,7 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
+//@ToString
 @Entity
 public class CartItem implements Serializable{
 

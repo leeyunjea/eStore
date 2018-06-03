@@ -19,6 +19,7 @@
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/admin/**" access='hasRole("ROLE_ADMIN")' /> <!-- /admin밑으로 오는 모든 url은 'ROLE_ADMIN'이라는 권한을 가져야 한다. -->
 		<security:form-login login-page="/login" authentication-failure-url="/login?error=1" />
+		<security:headers disabled="true"></security:headers> <!-- 추가 -->
 	</security:http>
 	<bean
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"

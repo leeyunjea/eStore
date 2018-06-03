@@ -28,9 +28,9 @@ cartApp.controller("cartCtrl", function($scope, $http) {
 	};
 
 	$scope.addToCart = function(productId) {
-		
+
 		$scope.setCsrfToken();
-		
+
 		$http.put('/eStore/api/cart/add/' + productId).then(
 				function successCallback() {
 					alert("Product successfully added to the cart!");
@@ -40,12 +40,40 @@ cartApp.controller("cartCtrl", function($scope, $http) {
 	};
 
 	$scope.removeFromCart = function(productId) {
-		
+
 		$scope.setCsrfToken();
-		
+
 		$http({
 			method : 'DELETE',
 			url : '/eStore/api/cart/cartItem/' + productId
+		}).then(function successCallback() {
+			$scope.refreshCart();
+		}, function errorCallback(response) {
+			console.log(response.data);
+		});
+	};
+
+	$scope.plusFromCart = function(productId) {
+
+		$scope.setCsrfToken();
+
+		$http({
+			method : 'PUT',
+			url : '/eStore/api/cart/cartItem/plus/' + productId
+		}).then(function successCallback() {
+			$scope.refreshCart();
+		}, function errorCallback(response) {
+			console.log(response.data);
+		});
+	};
+
+	$scope.minusFromCart = function(productId) {
+
+		$scope.setCsrfToken();
+
+		$http({
+			method : 'PUT',
+			url : '/eStore/api/cart/cartItem/minus/' + productId
 		}).then(function successCallback() {
 			$scope.refreshCart();
 		}, function errorCallback(response) {
@@ -67,7 +95,7 @@ cartApp.controller("cartCtrl", function($scope, $http) {
 		var csrfHeader = $("meta[name='_csrf_header']").attr("content");
 
 		$http.defaults.headers.common[csrfHeader] = csrfToken; // 가져온 head정보에
-																// csrf를 보냄
+		// csrf를 보냄
 	}
 
 });

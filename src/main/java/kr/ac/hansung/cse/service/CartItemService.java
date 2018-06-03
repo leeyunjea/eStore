@@ -20,11 +20,15 @@ public class CartItemService {
 	public void removeCartItem(CartItem cartItem) {
 		cartItemDao.removeCartItem(cartItem);
 	}
-	
+	//
+	public void updateCartItem(CartItem cartItem) {
+		cartItemDao.updateCartItem(cartItem);
+	}
+	//
 	public void removeAllCartItems(Cart cart) {
 		cartItemDao.removeAllCartItems(cart);
 	}
-	
+		
 	public CartItem getCartItemByProductId(int cartId, int productId) {
 		return cartItemDao.getCartItemByProductId(cartId, productId);
 	}
